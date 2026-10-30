@@ -78,39 +78,40 @@ class MoreMenuActivity : AppCompatActivity() {
                 }
 //
                 "Collections" -> {
-                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
 
-//                    startActivity(Intent(this, CollectionsActivity::class.java))
+                    startActivity(Intent(this, CollectionsActivity::class.java))
                 }
-//
+
                 "Approvals" -> {
-                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
 
 
-//                    startActivity(Intent(this, ApprovalActivity::class.java))
+                    startActivity(Intent(this, ApprovalsActivity::class.java))
                 }
 //
                 "Documents" -> {
-                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
 
-//                    startActivity(Intent(this, DocumentsActivity::class.java))
+
+                    startActivity(Intent(this, DocumentActivity::class.java))
                 }
 
                 "Performance" -> {
-                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
 
-//                    startActivity(Intent(this, SalesPriparnceActivity::class.java))
+                    startActivity(Intent(this, performanceActivity::class.java))
                 }
 
                 "Campaigns" -> {
-                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
 
-//                    startActivity(Intent(this, CampaignActivity::class.java))
+                    startActivity(Intent(this, OffersActivity::class.java))
                 }
 
-                "AI Assistant" -> {Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
+                "AI Assistant" -> {
+//                    Toast.makeText(this, "Coming Soon", Toast.LENGTH_SHORT).show()
 
-//                    startActivity(Intent(this, AIAssistantActivity::class.java))
+                    startActivity(Intent(this, AiActivity::class.java))
                 }
             }
         }

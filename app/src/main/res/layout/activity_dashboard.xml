@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<androidx.drawerlayout.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:fitsSystemWindows="true"
     android:layout_width="match_parent"
+    android:id="@+id/drawerLayout"
     android:layout_height="match_parent"
-    android:background="#F5F7FA">
+    android:background="@drawable/bg_gradient">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <!-- Header -->
     <LinearLayout
         android:id="@+id/headerLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@color/primary"
+        android:background="@color/transparent"
         android:orientation="vertical"
         android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -52,8 +57,6 @@
 
         </RelativeLayout>
 
-
-
     </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
@@ -69,6 +72,94 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="12dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardCornerRadius="20dp"
+                app:cardBackgroundColor="@android:color/transparent"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="16dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_gradient_card">
+
+                    <!-- LEFT SECTION -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Good Afternoon, Priya Sharma"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="RM - Priority Banking"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:alpha="0.85"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                    <!-- RIGHT: Circular Progress -->
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp">
+
+                        <!-- Circular Progress -->
+
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:indicatorSize="50dp"
+                            app:trackThickness="6dp"
+                            app:indicatorColor="@android:color/white"
+                            app:trackColor="#33FFFFFF"/>
+<!--                        <com.google.android.material.progressindicator.CircularProgressIndicator-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            app:indicatorSize="50dp"-->
+<!--                            app:trackThickness="6dp"-->
+<!--                            app:indicatorThickness="6dp"-->
+<!--                            app:indicatorColor="@android:color/white"-->
+<!--                            app:trackColor="#33FFFFFF"-->
+<!--                            app:progress="80"-->
+<!--                            app:max="100"/>-->
+
+                        <!-- Percentage Text -->
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="80%"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:textStyle="bold"/>
+                    </FrameLayout>
+
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
 
             <!-- KPI Cards Row 1 -->
             <LinearLayout
@@ -81,25 +172,23 @@
                     android:layout_height="120dp"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
+                        android:background="@drawable/bg_gradient_card"
                         android:padding="12dp">
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Today's Meetings"
-                            android:textSize="14sp" />
+
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:gravity="bottom|center_vertical"
                             android:orientation="horizontal">
 
                             <TextView
@@ -107,15 +196,17 @@
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
                                 android:text="05"
-                                android:textSize="36sp"
+                                android:textColor="@color/white"
+                                android:textSize="24sp"
                                 android:textStyle="bold" />
 
-                            <ImageView
-                                android:layout_width="28dp"
-                                android:layout_height="28dp"
-                                android:src="@drawable/ic_target_red" />
-
                         </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:text="Today's Meetings"
+                            android:textSize="14sp" />
 
                     </LinearLayout>
 
@@ -126,91 +217,82 @@
                     android:layout_height="120dp"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
+                    app:strokeWidth="0dp"
+                    app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
+                        android:background="@drawable/orange_card_view"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
                         android:padding="12dp">
 
-                        <TextView
-                            android:text="Pending Follow-ups"
-                            android:textSize="14sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:gravity="bottom|center_vertical"
                         android:orientation="horizontal">
 
                         <TextView
                             android:text="12"
-                            android:textSize="36sp"
+                            android:textSize="24sp"
                             android:textStyle="bold"
-                            android:layout_marginTop="12dp"
+                            android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_weight="1"
                             android:layout_height="wrap_content"/>
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:src="@drawable/ic_target_blue" />
                     </LinearLayout>
+                        <TextView
+                            android:text="Pending Follow-ips 5 high priority"
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
+                            android:layout_marginTop="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
 
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
-
-            </LinearLayout>
-
-            <!-- KPI Cards Row 2 -->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
                 <com.google.android.material.card.MaterialCardView
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
                     android:layout_margin="4dp"
+                    app:cardBackgroundColor="@android:color/transparent"
+                    app:strokeWidth="0dp"
                     app:cardCornerRadius="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
+                        android:background="@drawable/bg_gradient_card"
                         android:padding="12dp">
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:text="08"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                android:layout_weight="1"
+                                android:textColor="@color/white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
                         <TextView
                             android:text="Leads To Action"
                             android:textSize="14sp"
+                            android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="bottom|center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:text="08"
-                            android:textSize="36sp"
-                            android:textStyle="bold"
-                            android:layout_weight="1"
-                            android:layout_marginTop="12dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:src="@drawable/ic_target_red" />
-                    </LinearLayout>
 
                     </LinearLayout>
 
@@ -220,212 +302,344 @@
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_weight="1"
+                    app:strokeWidth="0dp"
                     android:layout_margin="4dp"
+                    app:cardBackgroundColor="@android:color/transparent"
                     app:cardCornerRadius="16dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="vertical"
+                        android:background="@drawable/green_card_view"
                         android:padding="12dp">
 
-                        <TextView
-                            android:text="Opportunities Closing"
-                            android:textSize="14sp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"/>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:gravity="bottom|center_vertical"
-                        android:orientation="horizontal">
 
-                        <TextView
-                            android:text="07"
-                            android:textSize="36sp"
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
                             android:layout_weight="1"
-                            android:textStyle="bold"
-                            android:layout_marginTop="12dp"
+
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:text="07"
+                                android:textSize="24sp"
+                                android:layout_weight="1"
+                                android:textStyle="bold"
+                                android:textColor="@color/white"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                        </LinearLayout>
+                        <TextView
+                            android:text="Opportunities Closing this week "
+                            android:textSize="12sp"
+                            android:textColor="@color/white"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
-                        <ImageView
-                            android:layout_width="28dp"
-                            android:layout_height="28dp"
-                            android:src="@drawable/ic_target_blue" />
-                    </LinearLayout>
 
 
                     </LinearLayout>
 
                 </com.google.android.material.card.MaterialCardView>
 
+
             </LinearLayout>
 
-            <!-- KPI Section -->
 
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
+                app:strokeWidth="0dp"
+                app:cardBackgroundColor="@android:color/transparent"
                 app:cardCornerRadius="20dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:padding="16dp">
+                    android:padding="16dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/bg_gradient_card">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Today's KPIs"
-                        android:textColor="@color/primary"
-                        android:textSize="18sp"
-                        android:textStyle="bold" />
-
-                    <!-- Row 1 -->
+                    <!-- LEFT CONTENT -->
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="16dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="0dp"
+                        <TextView
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
+                            android:text="Smart Suggestions"
+                            android:textColor="@android:color/white"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Pipeline Value" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="• 3 clients ready for loan upsell"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:layout_marginTop="6dp"/>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="₹ 96.4 Cr"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="• 5 high-value follow-ups overdue"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:layout_marginTop="2dp"/>
 
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Target ₹ 120 Cr" />
-                        </LinearLayout>
-
-                        <FrameLayout
-                            android:layout_width="80dp"
-                            android:layout_height="80dp">
-
-                            <com.google.android.material.progressindicator.CircularProgressIndicator
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:max="100"
-                                android:progress="80"
-                                app:indicatorColor="@color/primary"
-                                app:indicatorSize="70dp"
-                                app:trackColor="#E0E0E0"
-                                app:trackThickness="8dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="80%"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                        </FrameLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="• Cross-sell opportunity: Insurance"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"
+                            android:layout_marginTop="2dp"/>
 
                     </LinearLayout>
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginVertical="12dp"
-                        android:background="#E0E0E0" />
-
-                    <!-- Row 2 -->
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Won Business" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="₹ 18.7 Cr"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Target ₹ 25 Cr" />
-                        </LinearLayout>
-
-                        <FrameLayout
-                            android:layout_width="80dp"
-                            android:layout_height="80dp">
-
-                            <com.google.android.material.progressindicator.CircularProgressIndicator
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:max="100"
-                                android:progress="75"
-                                app:indicatorColor="@color/primary"
-                                app:indicatorSize="70dp"
-                                app:trackColor="#E0E0E0"
-                                app:trackThickness="8dp" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:text="75%"
-                                android:textSize="18sp"
-                                android:textStyle="bold" />
-
-                        </FrameLayout>
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginVertical="12dp"
-                        android:background="#E0E0E0" />
-
-                    <TextView
+                    <!-- BUTTON -->
+                    <com.google.android.material.button.MaterialButton
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Service Quality Score" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="4.6 / 5"
-                        android:textSize="32sp"
-                        android:textStyle="bold" />
+                        android:layout_height="40dp"
+                        android:text="Take Action"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"
+                        app:cornerRadius="20dp"
+                        android:backgroundTint="@android:color/transparent"
+                        app:strokeColor="@android:color/white"
+                        app:strokeWidth="1dp"/>
 
                 </LinearLayout>
 
+            </com.google.android.material.card.MaterialCardView>>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+
+            <!-- LEFT CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/bg_gradient_card">
+
+                    <TextView
+                        android:text="Pipeline Value"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:text="₹ 96.4 Cr"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:text="Target ₹ 120 Cr"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:alpha="0.8"/>
+
+                    <!-- Progress -->
+                    <FrameLayout
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_marginTop="8dp">
+
+<!--                        <com.google.android.material.progressindicator.CircularProgressIndicator-->
+<!--                            android:layout_width="60dp"-->
+<!--                            android:layout_height="60dp"-->
+<!--                            app:indicatorSize="50dp"-->
+<!--                            app:trackThickness="6dp"-->
+<!--                            app:indicatorThickness="6dp"-->
+<!--                            app:progress="80"-->
+<!--                            app:max="100"-->
+<!--                            app:indicatorColor="@android:color/white"-->
+<!--                            app:trackColor="#33FFFFFF"/>-->
+                        <com.google.android.material.progressindicator.CircularProgressIndicator
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            app:indicatorSize="50dp"
+                            app:trackThickness="6dp"
+                            app:indicatorColor="@android:color/white"
+                            app:trackColor="#33FFFFFF"/>
+
+                        <TextView
+                            android:layout_gravity="center"
+                            android:text="80%"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@android:color/white"
+                            android:textSize="12sp"
+                            android:textStyle="bold"/>
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_marginTop="10dp"
+                        android:text="Strong growth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
+                        android:textSize="12sp"/>
+
+                    <TextView
+                        android:text="4.6 / 5"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textStyle="bold"/>
+
+                    <!-- Stars -->
+                    <TextView
+                        android:text="★★★★★"
+                        android:textColor="#FFD700"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+                </LinearLayout>
+
+
+
+
             </com.google.android.material.card.MaterialCardView>
+
+
+
+
+            <!-- RIGHT CARD -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_margin="6dp"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="6dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:background="@drawable/bg_gradient_card">
+
+                    <TextView
+                        android:text="Priority Clients"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"/>
+
+                    <!-- Client Row -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+
+
+                        <ImageView
+                            android:layout_width="36dp"
+                            android:layout_height="36dp"
+                            android:src="@drawable/ic_profile"
+                            android:layout_marginEnd="8dp"
+                            android:scaleType="centerCrop"
+                            android:text="Rajesh Kumar"
+                            android:textColor="@android:color/white"
+                            android:textSize="14sp"/>
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:text="Rajesh Kumar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@android:color/white"
+                                android:textSize="14sp"/>
+
+                            <TextView
+                                android:text="₹ 1.2 Cr"
+                                android:textColor="@android:color/white"
+                                android:textSize="12sp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:alpha="0.8"/>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <!-- Tasks -->
+                    <TextView
+                        android:layout_marginTop="12dp"
+                        android:text="Tasks"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"/>
+
+                    <TextView
+                        android:text="☑ Call HNI Client"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="13sp"/>
+
+                    <TextView
+                        android:text="15:30  Portfolio"
+                        android:textColor="@android:color/white"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:alpha="0.8"/>
+
+                    <TextView
+                        android:layout_marginTop="4dp"
+                        android:text="☑ Today"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@android:color/white"
+                        android:textSize="13sp"/>
+                </LinearLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
@@ -433,7 +647,7 @@
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
+        app:cardBackgroundColor="@android:color/transparent"
         app:itemIconTint="@color/bottom_nav_color"
         app:itemTextColor="@color/bottom_nav_color"
         app:labelVisibilityMode="labeled"
@@ -442,4 +656,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Left Side Menu -->
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <com.google.android.material.navigation.NavigationView-->
+<!--        android:id="@+id/navigationView"-->
+<!--        android:layout_width="280dp"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:layout_gravity="start"-->
+<!--        app:menu="@menu/drawer_menu"-->
+<!--        tools:ignore="MissingConstraints" />-->
+
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/nav_header"
+        app:menu="@menu/drawer_menu" />
+
+</androidx.drawerlayout.widget.DrawerLayout>

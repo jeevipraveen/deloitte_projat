@@ -16,13 +16,13 @@
         <item name="colorOnSecondary">@color/white</item>
 
         <!-- Background -->
-        <item name="android:windowBackground">@color/background</item>
+        <item name="android:windowBackground">@color/primary</item>
         <item name="colorSurface">@color/surface</item>
         <item name="colorOnSurface">@color/text_primary</item>
 
         <!-- Status Bar -->
         <item name="android:statusBarColor">@color/primary</item>
-        <item name="android:navigationBarColor">@color/white</item>
+        <item name="android:navigationBarColor">@color/primary</item>
 
         <!-- Material Components -->
         <item name="shapeAppearanceSmallComponent">@style/RoundedSmall</item>
